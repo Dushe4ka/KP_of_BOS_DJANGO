@@ -1,0 +1,25 @@
+{% extends 'main/home.html' %}
+{% block content %}
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3"
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">{{ object.info_m }}</p>
+                        <p class="card-text">Приложение: {{ object.application_m }}</p>
+                        <p class="card-text">Описание: {{ object.action_m }}</p>
+                        <p class="card-text">Дата создания: {{ object.date_m }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a class="btn btn-primary" href="{% url 'main:list' %}" role="button">Вернуться</a>
+                            </div>
+<!--                            <small class="text-body-secondary">Просмотры: {{ object.views }}</small>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

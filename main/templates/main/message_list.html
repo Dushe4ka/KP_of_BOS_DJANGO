@@ -1,0 +1,38 @@
+{% extends 'main/home.html' %}
+{% block content %}
+<div class="row text-center">
+<form action="{% url 'main:list' %}" method="get">
+<input type="text" name="q" placeholder="Поиск по названию">
+    <button type="submit" class="btn btn-primary">Найти</button>
+</form>
+</div>
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="row ">
+            <div class="row text-center">
+                {% for object in object_list %}
+                <div class="col-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text">{{ object.info_m }}</p>
+                            <p class="card-text">{{ object.application_m }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group-center">
+                                    <a class="btn btn-primary" href="{% url 'main:view' object.pk %}"
+                                       role="button">Посмотреть</a>
+                                    <a class="btn btn-primary" href="{% url 'main:edit' object.pk %}"
+                                       role="button">Редактировать</a>
+                                    <a class="btn btn-warning" href="{% url 'main:delete' object.pk %}"
+                                       role="button">Удалить</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
